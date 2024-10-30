@@ -2,11 +2,13 @@
 #include <stdlib.h>
 
 // autores: Mario y sebas
-  
+
 
 int main(){
-	float t[7];	
-	char dias[7][11]={
+	#define DIAS_SEMANA 7
+
+	float t[DIAS_SEMANA];	
+	char dias[DIAS_SEMANA][11]={
 		"lunes", 
 		"martes",
 		"miercoles",
@@ -15,23 +17,30 @@ int main(){
 		"sabado",
 		"domingo"
 	};
-	int p = 0;
-	int min = 0, diamin = 0, max = 999, diamax = 999;
-	for(int i = 0; i < 7;i++){
-		printf("introudce la temperartura : %s\n",dias[i]);
+	float p = 0, min = 999, max = -999;
+	int diaMin = 0, diaMax = 0;
+
+
+	for(int i = 0; i < DIAS_SEMANA;i++){
+		printf("Introudce la temperatura del %s: ",dias[i]);
 		scanf("%f", &t[i]);
+		//Tomamos la temperatura promedio de cada día
 
 		p += t[i];
-		min = t[0];
+
 		if(t[i] < min){
 			min = t[i];
-			diamin = i;
-
+			diaMin = i;
 		}
-		printf("la temperatura es en el %s , con %dºC\n", dias[diamin], min);
-		printf("la temperatura promedio de la semana es : %d\n", p / 7);
-
-		return 0;
-
+		if(t[i] > max){
+			max = t[i];
+			diaMax = i;
+		}
 	}
+
+	printf("La temperatura mínima es en el %s, con %fºC\n", dias[diaMin], min);
+	printf("La temperatura máxima es en el %s, con %fºC\n", dias[diaMax], max);
+	printf("La temperatura promedio de la semana es : %.2fºC\n", p / DIAS_SEMANA);
+
+	return 0;
 }
