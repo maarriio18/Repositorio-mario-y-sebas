@@ -18,7 +18,7 @@ int main(){
 		"domingo"
 	};
 	float p = 0, min = 999, max = -999; //Declaramos floats p(promedio), min(mínimo) y max(máximo) para contener los valores del promedia y la temperatura mínima y máxima.
-	int diaMin = 0, diaMax = 0; //Declaramos como enteros las posiciones del día de temperatura máxima y mínima.
+	int diaMin = 0, diaMax = 0, diaSup = 0; //Declaramos como enteros las posiciones del día de temperatura máxima y mínima.
 
 
 	for(int i = 0; i < DIAS_SEMANA;i++){ //Creamos un for en el declaramos un entero i con 0 de valor inicial. Exigimos que cuando i sea menor que el número de días de la semana(7) se sume uno al valor de i para repitir el bucle de una en una vez. 
@@ -38,10 +38,18 @@ int main(){
 			diaMax = i;
 		}
 	}
+
+	for(int i = 0; i < DIAS_SEMANA; i++){ //Creamos un for adicional ya que la operación del if que se debe realizar varias veces debe hacerse fuera del for inicial, cuando ya está calculado el promedio.
+		if(p / DIAS_SEMANA < t[i]){
+			diaSup++;
+		}
+	}
+
 	//Imprimimos los valores 
-	printf("La temperatura mínima es en el %s, con %fºC\n", dias[diaMin], min);
-	printf("La temperatura máxima es en el %s, con %fºC\n", dias[diaMax], max);
-	printf("La temperatura promedio de la semana es : %.2fºC\n", p / DIAS_SEMANA);
+	printf("La temperatura mínima es en el %s, con %.0fºC\n", dias[diaMin], min);
+	printf("La temperatura máxima es en el %s, con %.0fºC\n", dias[diaMax], max);
+	printf("La temperatura promedio de la semana es: %.2fºC\n", p / DIAS_SEMANA);
+	printf("%d días superan el promedio semanal.\n", diaSup);
 
 	return 0;
 }
