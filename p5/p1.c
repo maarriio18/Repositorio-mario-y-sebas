@@ -46,10 +46,15 @@ int main(){
 	}
 
 	//Imprimimos los valores 
-	printf("La temperatura mínima es en el %s, con %.0fºC\n", dias[diaMin], min);
-	printf("La temperatura máxima es en el %s, con %.0fºC\n", dias[diaMax], max);
-	printf("La temperatura promedio de la semana es: %.2fºC\n", p / DIAS_SEMANA);
-	printf("%d días superan el promedio semanal.\n", diaSup);
+	printf("Temperatura promedio de la semana: %.2fºC\n", p / DIAS_SEMANA);
+	printf("Temperatura mínima: %.0fºC el día %s.\n", min, dias[diaMin]);
+	printf("Temperatura máxima: %.0fºC el día %s.\n", max, dias[diaMax]);
+	printf("Número de días con temperaturas superiores al promedio: %d.\n", diaSup);
+	printf("Días con temperaturas por debajo del promedio:\n");
+	//Creamos un for que imprima cada uno de los días que están por debajo del promedio siguiendo una estructura parecida. 
+	for(){
+		printf("	%s: %0.fºC\n", );
+	}
 
 	return 0;
 }
