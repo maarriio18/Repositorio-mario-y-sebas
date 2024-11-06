@@ -3,7 +3,6 @@
 
 // autores: Mario y sebas
 
-
 int main(){
 	#define DIAS_SEMANA 7 //Declaramos una constante que contenga el número de días que hay en una semana. Esto nos ayuda a programar un código más dinámico.
 
@@ -22,7 +21,7 @@ int main(){
 
 
 	for(int i = 0; i < DIAS_SEMANA;i++){ //Creamos un for en el declaramos un entero i con 0 de valor inicial. Exigimos que cuando i sea menor que el número de días de la semana(7) se sume uno al valor de i para repitir el bucle de una en una vez. 
-		printf("Introudce la temperatura del %s: ",dias[i]);
+		printf("Introduce la temperatura del %s: ",dias[i]);
 		scanf("%f", &t[i]);
 		//Tomamos la temperatura promedio de cada día
 
@@ -46,15 +45,24 @@ int main(){
 	}
 
 	//Imprimimos los valores 
+	
 	printf("Temperatura promedio de la semana: %.2fºC\n", p / DIAS_SEMANA);
 	printf("Temperatura mínima: %.0fºC el día %s.\n", min, dias[diaMin]);
 	printf("Temperatura máxima: %.0fºC el día %s.\n", max, dias[diaMax]);
 	printf("Número de días con temperaturas superiores al promedio: %d.\n", diaSup);
 	printf("Días con temperaturas por debajo del promedio:\n");
+
 	//Creamos un for que imprima cada uno de los días que están por debajo del promedio siguiendo una estructura parecida. 
+	
 	for(int i = 0; i < DIAS_SEMANA; i++){
 		if(p / DIAS_SEMANA > t[i]){
-			printf("	%s: %0.fºC\n", dias[diaMax]);
+			diaMax = i;
+
+			char letra1Mayus = dias[diaMax][0] - 'a' + 'A';
+
+			dias[diaMax][0] = letra1Mayus;
+
+			printf("	%s: %0.fºC\n", dias[diaMax], t[i]);
 		}
 	}
 
