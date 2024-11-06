@@ -52,8 +52,10 @@ int main(){
 	printf("Número de días con temperaturas superiores al promedio: %d.\n", diaSup);
 	printf("Días con temperaturas por debajo del promedio:\n");
 	//Creamos un for que imprima cada uno de los días que están por debajo del promedio siguiendo una estructura parecida. 
-	for(){
-		printf("	%s: %0.fºC\n", );
+	for(int i = 0; i < DIAS_SEMANA; i++){
+		if(p / DIAS_SEMANA > t[i]){
+			printf("	%s: %0.fºC\n", dias[diaMax]);
+		}
 	}
 
 	return 0;
