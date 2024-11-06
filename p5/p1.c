@@ -34,7 +34,7 @@ int main(){
 			diaMin = i; //la variable diaMin (día de temperatura mínima) pasará a valer la posición del día i
 		}
 		if(t[i] > max){ //aquí es lo mismo pero con máximos. cualquier valor será mayor q -999. 
-			max = t[i];
+				//max = t[i];
 			diaMax = i;
 		}
 	}
