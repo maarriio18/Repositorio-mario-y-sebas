@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> //librería para el strcmp
+#include <string.h> 
 
-//struct apartado 1
 struct Producto{
 	char nombre[20];
 	int cantidad;
