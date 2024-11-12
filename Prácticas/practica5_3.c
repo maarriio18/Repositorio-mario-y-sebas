@@ -9,7 +9,7 @@ struct Producto{
 
 int main(){
 	struct Producto productos[10];
-	int total_productos = 1;
+	int total_productos = 1, añadido;
 	char respuesta[10], busqueda[20];
 
 	printf("Introduce el total de productos (máx 10): ");
@@ -36,10 +36,14 @@ int main(){
 		if (strcmp(respuesta,"si") == 0){
 			printf("Ingrese el nombre del producto: ");
 			scanf("%s", productos[i].nombre);
-			printf("Cantidad a añadir: ");
-			scanf("%d", &productos[i].cantidad);
+			for(int i = 0; i < total_productos; i++){
+				if (strcmp(respuesta,"si") == 0){
+					printf("Cantidad a añadir: ");
+					scanf("%d", &añadido);
+					productos[i].cantidad += añadido;
+				}
+			}
 		}
-	}
 	printf("Inventario reabastecido:\n");
 	for(int i = 0; i < total_productos; i++){
 		printf("Producto %d: %s - %d unidades\n", i+1, productos[i].nombre, productos[i].cantidad);
